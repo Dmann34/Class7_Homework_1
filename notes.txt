@@ -1,0 +1,199 @@
+Week 1 - Class 7 ZION AWS: SAT SEP 13
+
+-read over notes:
+https://github.com/aaron-dm-mcdonald/Class7-notes/tree/main/091325
+
+-sign into aws
+
+-regions are in the upper right hand corner, pick out a region: Asia Pacific/Tokyo
+
+-click dashboards/type EC2 in the search or click 9 squares icon next to the search and click on EC2
+
+-security group:
+on the left hand side, scroll down to Network & Security and click on security groups
+click orange button Security Group
+security group name: lizzo-page-sg
+description:
+Web Server
+inbound rules/ingress/user:
+add rule: type:http source:anywhere-ipv4 0.0.0.0 description-optional: http ingress to Lizzo
+add rule: type:ssh  source:anywhere-ipv4 0.0.0.0
+***click custom protocol to change it or custom port to change it
+
+***don't touch outbound rules, it's easier to make inbound rules, to control what's coming inside
+outbound rules/egress/to talk to someone outside:
+type: 
+
+-tags-optional:
+key: dog value: Chewbacca
+key: env value: qa
+key: contact value: lizzo@booty.net
+key: region value: Tokyo
+
+-click on orange button: Create Security group
+
+-scroll down to Instances and click on Instances
+click orange button: Launch Instance
+name: lizzo-public-1
+
+-Application and OS Image:
+quick start: Amazon Linux: Free Tier
+
+-Instance type:
+t2.micro or t3 free tier
+
+-key pair:(for now use) Proceed without a key pair
+
+-Network Settings:(don't click edit/already default)
+auto-assign public ip: Enable
+Firewalll:select existing security group
+common security groups: lizzo-fav-sg
+
+-Configure Storge/storage/hdd/sdd: keep the settings
+
+-advanced details:
+scroll to user data: paste script: https://github.com/aaron-dm-mcdonald/Class7-notes/blob/main/091325/scripts/simple_metadata.sh
+
+-look over at your Summary: make sure 1 instance and etc.
+
+-launch instance
+
+-click instance link and give it a while to finish state
+
+-go to down to the public dns and copy, paste in the url
+
+Teardown:
+-EC2> instances> instances> click on instance state on the upper right hand> terminate (delete) instance> terminate
+-Network & Security> security groups> select the instance> go to the Actions on the upper right hand> delete security groups> delete
+
+
+Week 2 - Class 7 ZION AWS: AWS and the borg video TUE SEP 16
+
+-If you want to enable regions, click on the region on the upper right hand side> manage regions> scroll down to AWS Regions> click on a region you like and click on the enable button
+
+-sign into aws
+
+-regions are in the upper right hand corner, pick out a region: Asia Pacific/Tokyo
+
+-click dashboards/type EC2 in the search or click 9 squares icon next to the search and click on EC2
+
+-security group:
+on the left hand side, scroll down to Network & Security and click on security groups
+click orange button Security Group
+security group name: lizzo-page-sg
+description:
+Web Server
+inbound rules/ingress/user:
+add rule: type:http source:anywhere-ipv4 0.0.0.0 description-optional: http ingress to Lizzo
+add rule: type:ssh  source:anywhere-ipv4 0.0.0.0
+***click custom protocol to change it or custom port to change it
+
+***don't touch outbound rules, it's easier to make inbound rules, to control what's coming inside
+outbound rules/egress/to talk to someone outside:
+type: 
+
+-tags-optional:
+key: dog value: Chewbacca
+key: env value: qa
+key: contact value: lizzo@booty.net
+key: region value: Tokyo
+
+-click on orange button: Create Security group
+
+-scroll down to Instances and click on Instances
+click orange button: Launch Instance
+name: lizzo-public-1
+
+-Application and OS Image:
+quick start: Amazon Linux: Free Tier
+
+-Instance type:
+t2.micro or t3 free tier
+
+-key pair:
+click on Create new key pair
+key pair name: lizzo-page-sg
+key pair type: RSA
+Private key file format: .pem
+click on Create Key Pair
+It will download, look in your downloads
+
+-Network Settings:(don't click edit/already default)
+auto-assign public ip: Enable
+Firewalll:select existing security group
+common security groups: lizzo-fav-sg
+
+-Configure Storge/storage/hdd/sdd: keep the settings
+
+-advanced details:
+scroll to user data: paste script: https://github.com/Dmann34/bmc5/blob/main/ec2scrpit
+
+-look over at your Summary: make sure 1 instance and etc.
+
+-launch instance
+
+-click instance link and give it a while to finish state
+
+-go to down to the public dns and copy, paste in the url
+
+Teardown:
+-EC2> instances> instances> click on instance state on the upper right hand> terminate (delete) instance> terminate
+-Network & Security> security groups> select the instance> go to the Actions on the upper right hand> delete security groups> delete
+
+
+How to make a launch template:
+-click on Instances on the left under Instances> click on your instance you made> click on Actions> image and templates> create template from instance
+-create launch template> launch template name and description> launch template name: homepageagain> paste the name in the description
+-scroll down to check if everything is correct> click on create launch template
+
+How to connect to your instance:
+-click on your instance you made> click connect
+-EC2 Instance Connect> connect using a public ip clicked and click on Connect
+-ctrl+z to stop the ping
+-ctrl+z to start
+
+How to make two instances:
+-click on instance you made> click on instance state: terminate
+-launch instance from template
+-select source template: select a launch template
+-scroll down to Summary on the right and put 2
+-launch instance
+-go to ec2 and now running two instances
+
+How to Launch template versions: one that works and the other that you've changed
+-go to Instances> launch templates> click on template
+-actions> modify template (create new version)> template version description: give a name>
+-scroll down advance details> user data: look at script
+-get rid of img src url and paste an html pic
+-create template version
+-ec2> click on launch template
+-on the Launch template version details:version:you'll see 2 versions
+-go to actions> launch instance from template> go 2
+-scroll down to number of instances 1
+-launch instance
+-go to instances
+-go to launch instance> action> launch instances from template
+-source template> pick a version> launch instance from existing key pair
+-go back to instances to see the initializing
+
+
+Week 3 - Class 7 ZION: AWS and The Borg TUE SEP 23
+
+Gitbash: shell emulator. use for the same cmd line as windows and mac
+
+pwd: Print the current working directory
+ls: List directory contents
+cd: Change directory
+mkdir (name): Create a new directory/folder
+rmdir (name): Remove an empty directory
+touch (name): Create a new empty file
+cp: Copy files or directories
+mv: Move or rename files or directories
+rm (name): Delete files or directories
+cat: View file contents
+nano: Open file in Nano text editor
+chmod: Change file permissions
+chown: Change file owner or group
+echo: Display a message or variable
+clear: Clear the terminal screen
+cd /: goes to c:/

@@ -1,0 +1,8 @@
+1. pwd
+2. cd /home/user2
+3. 2 home directory
+5. cd, cd $HOME and cd ~
+6. cd $HOME/app/tests
+7. mkdir hello{001..100}
+8.rmdir /directory/*
+9. rm -rf somedir

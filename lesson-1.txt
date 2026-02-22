@@ -1,0 +1,10 @@
+1. ls -l
+2. S
+3. --
+4. 2.User Identifier
+5. `..`
+6. u
+7. ls -lh
+8. ls --format=commas
+9. ls -lQ
+
