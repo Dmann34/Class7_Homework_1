@@ -1,0 +1,27 @@
+-Git push for Homework1
+1. cd into your project folder:
+cd <folder name>
+2. initialize
+git init
+3.git clone <https://yourwebsite> the GitHub repo
+4.ls to make sure what's in the folder
+5. cd in to git hub folder that was made
+cd <folder>
+
+-Git branching
+*git branch: Lists all a Git project’s branches. “which branch am I on?”
+*git branch (branch_name): Creates a new branch.
+*git checkout (branch_name): Used to switch from one branch to another.
+git branch: Lists all a Git project’s branches. “which branch am I on?”
+git log: shows the commits you made in the master branch and (branch_name) inherited them, every commit master has, (branch_name) also has.
+type q tomake sure you're no longer in git log
+make a change in a file or etc.
+type q tomake sure you're no longer in git log
+*git add (resume.txt)
+*git commit -m "Complete first line of dialogue"
+
+-Git Merge
+*git checkout master: Used to switch from one branch to another.
+*git merge (branch_name): Used to join file changes from one branch to another.
+*git commit -m "Complete first line of dialogue"
+*git branch -d (branch_name): Deletes the branch specified.
